@@ -2,19 +2,18 @@ const util = require('util');
 const fs = require('fs');
 
 // This package was used to generate my unique ids. https://www.npm.js.com/package/uuid
-const uuid1 = require('uuid/ver1');
-const { parse } = require('path');
+const uuid1 = require('uuid/v1');
 
-const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
+const readFileBlend = util.promisify(fs.readFile);
+const writeFileBlend = util.promisify(fs.writeFile);
 
 class Storage {
     read() {
-        return readFile('db/db.json', 'utf8');
+        return readFileBlend('db/db.json', 'utf8');
     }
 
     write(note) {
-        return writeFile('db/db.json', JSON.stringify(note));
+        return writeFileBlend('db/db.json', JSON.stringify(note));
     }
 
     getNotes() {
