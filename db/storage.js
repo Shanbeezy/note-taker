@@ -2,7 +2,7 @@ const util = require('util');
 const fs = require('fs');
 
 // This package was used to generate my unique ids. https://www.npm.js.com/package/uuid
-const {v4 : uuidv4} = require('uuid');
+const {v1 : uuidv1} = require('uuid');
 
 const readFileBlend = util.promisify(fs.readFile);
 const writeFileBlend = util.promisify(fs.writeFile);
@@ -39,7 +39,7 @@ class Storage {
         }
 
         // Add a unique id to the note using uuid blank
-        const newNote = { title, text, id : uuidv4() };
+        const newNote = { title, text, id : uuidv1() };
     
 
     // Gather all notes, add new note, write all the updatted notes, then return the new note
