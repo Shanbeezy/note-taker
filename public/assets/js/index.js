@@ -1,3 +1,5 @@
+console.log('Script loaded');
+
 let noteForm;
 let noteTitle;
 let noteText;
